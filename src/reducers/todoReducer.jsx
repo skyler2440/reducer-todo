@@ -13,6 +13,12 @@ export const todoReducer = (state, action) =>{
             completed:false
         }
         return {...state, todoItems:[...state.todoItems, newTodo]}
+
+        case 'TOGGLE_COMPLETE':
+           return{
+               ...state,
+               completed: !state.completed
+           }
         // console.log("TCL: todoReducer -> newTask", newTask)
         default:
             return state;

@@ -12,12 +12,14 @@ const handleChanges = e => {
     setNewTodo(e.target.value)
 }
 
+console.log("TCL: id", state.id)
+
 return(
     <>
     <h1>Todo List</h1>
-    <div>
+    <div  >
     {state.todoItems.map(res =>
-        <p key={res.id}>{res.item}</p>)}
+        <p key={res.id} onClick={()=> dispatch({type:'TOGGLE_COMPLETED'})}>{res.item}</p>)}
     </div>
     <div>
         <input
