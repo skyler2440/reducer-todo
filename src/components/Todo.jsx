@@ -3,11 +3,7 @@ import {initialState, todoReducer, newState} from '../reducers/todoReducer'
 
 const Todo = (props) => {
     console.log("TCL: props", props)
-    const [newTodo, setNewTodo] = useState({
-        item:'',
-        completed:false,
-        id:''
-    });
+    const [newTodo, setNewTodo] = useState();
 
 const [state, dispatch] = useReducer(todoReducer, initialState);
 console.log("TCL: Todo -> state", state)
@@ -20,7 +16,8 @@ return(
     <>
     <h1>Todo List</h1>
     <div>
-    
+    {state.todoItems.map(res =>
+        <p key={res.id}>{res.item}</p>)}
     </div>
     <div>
         <input
